@@ -1,0 +1,21 @@
+{
+  "name": "maxylvan",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "scripts": {
+    "dev": "bun --filter '*' dev",
+    "dev:fe": "bun --filter @maxylvan/frontend dev",
+    "dev:be": "bun --filter @maxylvan/backend dev"
+  }
+}
