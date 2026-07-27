@@ -50,7 +50,7 @@ const useSplitText = <T extends HTMLElement>({
             linesClass: 'line++',
             aria: 'none',
             onSplit: (self) => {
-              const lineOpt = self.lines.reduce((acc, line) => {
+              const lineOpt = self.lines.reduce<LineOpt>((acc, line) => {
                 if (!line.parentElement) return acc;
                 const parentAttr =
                   line.parentElement.getAttribute('data-parent');
@@ -60,7 +60,7 @@ const useSplitText = <T extends HTMLElement>({
                 acc[parentAttr] = [...prevLineOpt, line.textContent ?? ''];
 
                 return acc;
-              }, {} as LineOpt);
+              }, {});
 
               setLinesOpt(lineOpt);
               splitRef.current = self;
