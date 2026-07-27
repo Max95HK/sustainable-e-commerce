@@ -2,14 +2,6 @@
 import { Link } from '@tanstack/react-router';
 
 /* Components */
-import { Button } from '@/components/ui/button';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuTrigger
-} from '@/components/ui/dropdown-menu';
 
 /* Utils */
 import { buttonVariants } from '@/components/ui/button';
@@ -19,13 +11,12 @@ import { cn } from '@/lib/utils';
 
 /* Assets */
 import { plant } from '@/assets';
-import { ImMenu } from 'react-icons/im';
 import AnimatedHamburgerButton from '../custom/animated-hamburger-button';
 
 const Header = () => {
   return (
     <header className='fixed top-4 left-0 w-full px-4 '>
-      <div className='container h-16 flex items-center border border-foreground rounded-lg justify-between min-w-sm bg-background/30 backdrop-blur-xs'>
+      <div className='container h-16 flex items-center border border-foreground rounded-lg justify-between bg-background/30 backdrop-blur-xs'>
         <div className='text-3xl flex items-center gap-2 md:gap-4'>
           <Link
             to='/'
@@ -36,8 +27,8 @@ const Header = () => {
           <img
             src={plant}
             alt='A plant icon'
-            width={35}
-            height={35}
+            width={25}
+            height={25}
           />
         </div>
         <div className='hidden md:flex items-center gap-3'>
