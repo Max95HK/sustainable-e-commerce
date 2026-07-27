@@ -38,8 +38,8 @@ const useSplitText = <T extends HTMLElement>({
         containerRef.current.querySelectorAll(targetSelector),
       );
 
-      children.forEach((child) => {
-        child.setAttribute('data-parent', crypto.randomUUID());
+      children.forEach((child, index) => {
+        child.setAttribute('data-parent', String(index));
       });
 
       document.fonts.ready.then(() => {
