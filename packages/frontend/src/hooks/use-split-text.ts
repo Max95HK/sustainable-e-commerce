@@ -8,25 +8,23 @@ import { SplitText } from 'gsap/SplitText';
 
 gsap.registerPlugin(SplitText);
 
-type UseSplitText<T extends HTMLElement> = {
+const SPLIT_TARGET_ATTR = 'data-split-group'
+
+type UseSplitTextParams<T extends HTMLElement> = {
   targetSelector: string;
   containerRef: RefObject<T | null>;
-};
-
-type LineOpt = {
-  [parentAttr: string]: string[];
 };
 
 const useSplitText = <T extends HTMLElement>({
   targetSelector,
   containerRef,
-}: UseSplitText<T>) => {
-  const [linesOpt, setLinesOpt] = useState<LineOpt>({});
+}: UseSplitTextParams<T>) => {
+  const [lineGroups, setLineGroups] = useState<string[][]>([]);
 
   const isMounted = useRef(false);
   const splitRef = useRef<SplitText | null>(null);
 
-  console.log(linesOpt);
+  console.log(lineGroups);
 
   useGSAP(
     () => {
@@ -34,12 +32,12 @@ const useSplitText = <T extends HTMLElement>({
 
       if (!containerRef.current) return;
 
-      const children = Array.from(
+      const splitTatgets = Array.from(
         containerRef.current.querySelectorAll(targetSelector),
       );
 
-      children.forEach((child, index) => {
-        child.setAttribute('data-parent', String(index));
+      splitTatgets.forEach((splitTarget) => {
+        splitTarget.setAttribute(SPLIT_TARGET_ATTR, crypto.randomUUID());
       });
 
       document.fonts.ready.then(() => {
@@ -50,19 +48,29 @@ const useSplitText = <T extends HTMLElement>({
             linesClass: 'line++',
             aria: 'none',
             onSplit: (self) => {
-              const lineOpt = self.lines.reduce<LineOpt>((acc, line) => {
-                if (!line.parentElement) return acc;
+              const linesMap = new Map<string, string[]>();
+
+              self.lines.forEach((line) => {
+                if (!line.parentElement) return;
                 const parentAttr =
-                  line.parentElement.getAttribute('data-parent');
-                if (!parentAttr) return acc;
-                const prevLineOpt = acc[parentAttr] ?? [];
+                  line.parentElement.getAttribute(SPLIT_TARGET_ATTR);
+                if (!parentAttr) return;
+                const prevLines = linesMap.get(parentAttr) ?? [];
 
-                acc[parentAttr] = [...prevLineOpt, line.textContent ?? ''];
+                linesMap.set(parentAttr, [
+                  ...prevLines,
+                  line.textContent ?? '',
+                ]);
+              });
 
-                return acc;
-              }, {});
+              const orderedGroups = splitTatgets.map((splitTarget) => {
+                const parentAttr = splitTarget.getAttribute(SPLIT_TARGET_ATTR);
+                if (!parentAttr) return [];
+                return linesMap.get(parentAttr) ?? [];
+              });
 
-              setLinesOpt(lineOpt);
+              setLineGroups(orderedGroups);
+
               splitRef.current = self;
             },
           });
@@ -77,7 +85,7 @@ const useSplitText = <T extends HTMLElement>({
     { scope: containerRef },
   );
 
-  return { linesOpt };
+  return { lineGroups };
 };
 
 export default useSplitText;

@@ -2,14 +2,27 @@
 import { Link } from '@tanstack/react-router';
 
 /* Utils */
-import { buttonVariants } from '@/components/ui/button';
+import { Button, buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
 /* Components */
+import AnimatedCopy from '@/components/custom/animated-copy';
+import {
+  Card,
+  CardAction,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 
 /* Hooks */
 import useSplitText from '@/hooks/use-split-text';
 import { useRef } from 'react';
+
+/* Assets */
+import { forest } from '@/assets';
 
 const Home = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -19,53 +32,59 @@ const Home = () => {
   });
 
   return (
-    <section
-      id='hero'
-      className='container mt-30 md:mt-40 lg:mt-60 h-[calc(100%-7.5rem)] md:h-[calc(100%-10rem)] lg:h-[calc(100%-15rem)]'
-    >
-      <div className='flex flex-col h-full lg:items-center'>
-        <div
-          ref={containerRef}
-          className='flex flex-col space-y-4 lg:text-center'
-        >
-          <div>
-            <p className='spilt-text text-lg lg:text-xl text-muted-foreground font-semibold text-balance'>
-              Traceable wood. Real impact
+    <AnimatedCopy>
+      <section
+        id='hero'
+        className='container my-30 md:my-40 lg:my-60'
+      >
+        <div className='flex flex-col h-full space-y-4 lg:text-center lg:items-center'>
+          <p className='spilt-text text-lg lg:text-xl text-muted-foreground font-semibold text-balance'>
+            Traceable wood. Real impact
+          </p>
+
+          <h1 className='spilt-text h1 text-balance'>Wood that grows twice.</h1>
+
+          <h2 className='spilt-text h4 text-balance'>
+            Every order plants a real tree.
+          </h2>
+
+          <div className='flex gap-4 lg text-balance lg:self-center mt-8'>
+            <Link
+              to='/'
+              className={cn(buttonVariants())}
+            >
+              Explore the catalog
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id='mission'
+        className='container bg-secondary rounded-lg pr-0 overflow-hidden h-screen'
+      >
+        <div className='grid grid-cols-12 h-full'>
+          <div className='col-span-7 flex flex-col items-center justify-center'>
+            <p className='h4'>
+              Every piece traced. Every order regrows something
             </p>
-          </div>
-
-          <div>
-            <h1 className='spilt-text h1 text-balance'>
-              Wood that grows twice.
-            </h1>
-          </div>
-
-          <div>
-            <h2 className='spilt-text h4 text-balance'>
-              Furniture, objects, and toys made from certified or reclaimed
-              wood. Every piece tells you where it came from. Every order plants
-              a real tree.
+            <h2 className='flex items-center gap-4'>
+              <span className='text-[12rem] font-semibold'>4382</span>
+              <span className='text-2xl font-semibold'>Tree Planted</span>
             </h2>
+            <Button variant='outline' className='mt-8'>See your Forest</Button>
           </div>
-
+          <div className='col-span-5'>
+            <img
+              src={forest}
+              alt=''
+              className='object-cover size-full'
+              loading='lazy'
+            />
+          </div>
         </div>
-
-        <div className='flex gap-4 lg text-balance lg:self-center mt-8'>
-          <Link
-            to='/'
-            className={cn(buttonVariants({ variant: 'outline' }))}
-          >
-            Discover our mission
-          </Link>
-          <Link
-            to='/'
-            className={cn(buttonVariants())}
-          >
-            Explore the catalog
-          </Link>
-        </div>
-      </div>
-    </section>
+      </section>
+    </AnimatedCopy>
   );
 };
 
