@@ -23,6 +23,7 @@ import { useRef } from 'react';
 
 /* Assets */
 import { forest } from '@/assets';
+import { RiTreeFill } from 'react-icons/ri';
 
 const Home = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -64,15 +65,23 @@ const Home = () => {
         className='container bg-secondary rounded-lg pr-0 overflow-hidden h-screen'
       >
         <div className='grid grid-cols-12 h-full'>
-          <div className='col-span-7 flex flex-col items-center justify-center'>
+          <div className='col-span-7 flex flex-col items-center justify-center space-y-4'>
             <p className='h4'>
               Every piece traced. Every order regrows something
             </p>
             <h2 className='flex items-center gap-4'>
-              <span className='text-[12rem] font-semibold'>4382</span>
+              <span className='text-[12rem] font-semibold'>
+                4382
+              </span>
               <span className='text-2xl font-semibold'>Tree Planted</span>
             </h2>
-            <Button variant='outline' className='mt-8'>See your Forest</Button>
+            <Button
+              variant='secondary'
+              className='w-full max-w-sm inline-flex gap-3 items-center'
+            >
+              See your Forest
+              <RiTreeFill />
+            </Button>
           </div>
           <div className='col-span-5'>
             <img

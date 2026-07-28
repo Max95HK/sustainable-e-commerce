@@ -9,13 +9,13 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          'bg-primary-500 text-primary-foreground hover:bg-primary-600 aria-expanded:bg-primary-700 dark:bg-primary dark:hover:bg-primary-400 shadow-[0_0_0_2px_var(--background),0_0_0_4px_var(--primary)] hover:shadow-[0_0_0_0px_var(--background),0_0_0_0px_var(--primary)] transition duration-[350ms] ease-[cubic-bezier(0.16,1,0.3,1)]',
+          'bg-primary-500 text-primary-foreground hover:bg-primary-600 aria-expanded:bg-primary-700 dark:bg-primary dark:hover:bg-primary-400 shadow-[0_0_0_2px_var(--background),0_0_0_4px_var(--primary-700)] hover:shadow-[0_0_0_0px_var(--background),0_0_0_0px_var(--primary-700)] transition duration-[350ms] ease-[cubic-bezier(0.16,1,0.3,1)]',
 
         outline:
           'border-2 border-primary-600 bg-background hover:bg-primary-200 aria-expanded:bg-primary-50 aria-expanded:text-primary-700 dark:border-primary-800 dark:hover:bg-primary-900/40 dark:hover:text-primary-300',
 
         secondary:
-          'bg-secondary text-secondary-foreground hover:bg-[color-mix(in_oklch,var(--secondary),var(--foreground)_8%)] aria-expanded:bg-secondary aria-expanded:text-secondary-foreground',
+          'bg-secondary-700 text-secondary-foreground hover:bg-secondary-800 aria-expanded:bg-secondary-700 dark:bg-secondary dark:hover:bg-secondary-400 shadow-[0_0_0_2px_var(--secondary),0_0_0_4px_var(--secondary-900)] hover:shadow-[0_0_0_0px_var(--secondary),0_0_0_0px_var(--secondary-900)] transition duration-[350ms] ease-[cubic-bezier(0.16,1,0.3,1)]',
 
         ghost:
           'hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground dark:hover:bg-muted/50',
