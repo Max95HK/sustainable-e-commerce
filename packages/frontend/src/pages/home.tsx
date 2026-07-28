@@ -7,15 +7,6 @@ import { cn } from '@/lib/utils';
 
 /* Components */
 import AnimatedCopy from '@/components/custom/animated-copy';
-import {
-  Card,
-  CardAction,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
 
 /* Hooks */
 import useSplitText from '@/hooks/use-split-text';
@@ -24,6 +15,7 @@ import { useRef } from 'react';
 /* Assets */
 import { forest } from '@/assets';
 import { RiTreeFill } from 'react-icons/ri';
+import { FaArrowRightLong } from "react-icons/fa6";
 
 const Home = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -52,9 +44,10 @@ const Home = () => {
           <div className='flex gap-4 lg text-balance lg:self-center mt-8'>
             <Link
               to='/'
-              className={cn(buttonVariants())}
+              className={cn(buttonVariants(), 'inline-flex items-center gap-3')}
             >
               Explore the catalog
+              <FaArrowRightLong />
             </Link>
           </div>
         </div>
