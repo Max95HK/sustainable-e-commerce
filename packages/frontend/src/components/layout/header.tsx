@@ -16,7 +16,7 @@ import AnimatedHamburgerButton from '../custom/animated-hamburger-button';
 const Header = () => {
   return (
     <header className='fixed top-4 left-0 w-full px-4 '>
-      <div className='container h-16 flex items-center border-2 border-foreground rounded-lg justify-between bg-background/30 backdrop-blur-xs'>
+      <div className='container h-16 flex items-center border-2 border-foreground rounded-lg justify-between bg-background/30 backdrop-blur-xs max-w-336'>
         <div className='text-3xl flex items-center gap-2 md:gap-4'>
           <Link
             to='/'
