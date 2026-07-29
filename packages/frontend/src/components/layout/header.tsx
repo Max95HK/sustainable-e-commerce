@@ -2,6 +2,7 @@
 import { Link } from '@tanstack/react-router';
 
 /* Components */
+import FlipLink from '@/components/custom/flip-link';
 
 /* Utils */
 import { buttonVariants } from '@/components/ui/button';
@@ -31,19 +32,19 @@ const Header = () => {
             height={25}
           />
         </div>
+
         <div className='hidden md:flex items-center gap-3'>
-          <Link
+          <FlipLink
             to='/login'
-            className={cn(buttonVariants({ variant: 'outline' }))}
+            variant='outline'
           >
             Login
-          </Link>
-          <Link
+          </FlipLink>
+          <FlipLink
             to='/signup'
-            className={cn(buttonVariants())}
           >
             Start for free
-          </Link>
+          </FlipLink>
         </div>
 
         {/* <div className='md:hidden'>
@@ -70,8 +71,7 @@ const Header = () => {
           </DropdownMenu>
         </div> */}
 
-        <AnimatedHamburgerButton /> 
-
+        <AnimatedHamburgerButton />
       </div>
     </header>
   );

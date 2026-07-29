@@ -7,7 +7,7 @@ type AnimatedCopyProps = {
 
 const AnimatedCopy = ({children}: AnimatedCopyProps) => {
   return (
-    <div className="h-full">{children}</div>
+    <div className="">{children}</div>
   );
 };
 

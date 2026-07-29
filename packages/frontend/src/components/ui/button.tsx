@@ -4,18 +4,18 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
 const buttonVariants = cva(
-  "group/button inline-flex shrink-0 items-center justify-center rounded-lg border border-transparent bg-clip-padding font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+  "group/button inline-flex shrink-0 items-center justify-center rounded-lg border border-transparent bg-clip-padding font-medium whitespace-nowrap transition-all  select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
   {
     variants: {
       variant: {
         default:
-          'bg-primary-500 text-primary-foreground hover:bg-primary-600 aria-expanded:bg-primary-700 dark:bg-primary dark:hover:bg-primary-400 shadow-[0_0_0_2px_var(--background),0_0_0_4px_var(--primary-700)] hover:shadow-[0_0_0_0px_var(--background),0_0_0_0px_var(--primary-700)] transition duration-[350ms] ease-[cubic-bezier(0.16,1,0.3,1)]',
+          'bg-primary-500 text-primary-foreground hover:bg-primary-600 aria-expanded:bg-primary-700 dark:bg-primary dark:hover:bg-primary-400 outline-primary outline-2 outline-offset-2',
 
         outline:
-          'border-2 border-primary-600 bg-background hover:bg-primary-200 aria-expanded:bg-primary-50 aria-expanded:text-primary-700 dark:border-primary-800 dark:hover:bg-primary-900/40 dark:hover:text-primary-300',
+          'border-2 border-primary-600 aria-expanded:bg-primary-50 aria-expanded:text-primary-700 dark:border-primary-800 dark:hover:bg-primary-900/40 dark:hover:text-primary-300 hover:underline hover:underline-offset-2',
 
         secondary:
-          'bg-secondary-700 text-secondary-foreground hover:bg-secondary-800 aria-expanded:bg-secondary-700 dark:bg-secondary dark:hover:bg-secondary-400 shadow-[0_0_0_2px_var(--secondary),0_0_0_4px_var(--secondary-900)] hover:shadow-[0_0_0_0px_var(--secondary),0_0_0_0px_var(--secondary-900)] transition duration-[350ms] ease-[cubic-bezier(0.16,1,0.3,1)]',
+          'bg-secondary-500 text-secondary-foreground hover:bg-secondary-600 aria-expanded:bg-secondary-700 dark:bg-secondary dark:hover:bg-secondary-400 outline-secondary-300 outline-2 outline-offset-2',
 
         ghost:
           'hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground dark:hover:bg-muted/50',
